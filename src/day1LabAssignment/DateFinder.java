@@ -27,11 +27,11 @@ public class DateFinder {
                     break;
                 case 2:
 
-                    if(d==28 && (y%4==0 && y%100!=0)){
+                    if(d==28 &&(y%4==0 && (y%100!=0 || y%400==0))){
 
                         dat = new Date(d+1,m,y);
                     }
-                    else if(!(d==28 &&(y%4==0 && y%100!=0))){
+                    else if(!(d==28 &&(y%4==0 && (y%100!=0 || y%400==0)))){
 
                         dat = new Date(1,m+1,y);
                     }
@@ -71,8 +71,9 @@ class Date{
     public int month;
     public int year;
     public Date(int d,int m,int y){
-              this.date=d;
-              this.month=m;
-              this.year=y;
+        this.date=d;
+        this.month=m;
+        this.year=y;
     }
 }
+
