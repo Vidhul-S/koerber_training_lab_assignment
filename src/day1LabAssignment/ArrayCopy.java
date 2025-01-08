@@ -2,7 +2,7 @@ package day1LabAssignment;
 
 import java.util.Scanner;
 
-public class arrayCopy {
+public class ArrayCopy {
     public static int[] copyOf(int[] a){
         int[] copy = new int[a.length];
         for (int i = 0; i < a.length; i++) {
