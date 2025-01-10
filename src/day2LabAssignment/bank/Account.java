@@ -13,6 +13,27 @@ public class Account {
         this.accountBalance = accountBalance;
     }
     public void deposit(double amount){
+
         this.accountBalance += amount;
+    }
+    public double getBalance(){
+
+        return this.accountBalance;
+    }
+    public boolean withdraw(double amount) {
+
+        if (amount <= this.accountBalance) {
+
+            this.accountBalance -= amount;
+        }
+        else if (amount < 0) {
+
+            System.out.println("Invalid amount");
+        }
+        else {
+
+            System.out.println("Insufficent balance");
+        }
+        return true;
     }
 }
