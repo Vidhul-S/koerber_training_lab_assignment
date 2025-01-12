@@ -3,48 +3,34 @@ package day2LabAssignment.employeePaySystem;
 import java.util.ArrayList;
 
 public class PaySystem {
-    private ArrayList<Employee> employees;
 
+    private ArrayList<Payable> payables;
     public PaySystem() {
-        employees = new ArrayList<>();
-    }
 
-    public void addEmployee(Employee employee) {
-        employees.add(employee);
+        payables = new ArrayList<>();
     }
+    public void addPayable(Payable payable) {
 
-    public void displayAllEmployees() {
-        for (Employee emp : employees) {
-            System.out.println(emp);
+        payables.add(payable);
+    }
+    public void displayPayments() {
+
+        for (Payable payable : payables) {
+
+            payable.getPayment();
         }
     }
-
-    public void increaseSalaries() {
-        for (Employee emp : employees) {
-            if (emp instanceof SalaryPayment) {
-                ((SalaryPayment) emp).setIncreasedSalary();
-            }
-        }
-    }
-
     public static void main(String[] args) {
 
+        Employee emp1 = new Employee(1, "John", "Doe", 5000);
+        Employee emp2 = new Employee(2, "Jane", "Smith", 4500);
+        Invoice inv1 = new Invoice(101, "Software Development", 15000);
+        Invoice inv2 = new Invoice(102, "Consulting Services", 8000);
         PaySystem paySystem = new PaySystem();
-
-        SalariedEmployee salariedEmp = new SalariedEmployee(1, "John", "Doe", 500);
-        HourlyEmployee hourlyEmp = new HourlyEmployee(2, "Jane", "Smith", 20, 40);
-        ContractEmployee contractEmp = new ContractEmployee(3, "Alice", "Brown", 10, 2000);
-        //sample tests
-        paySystem.addEmployee(salariedEmp);
-        paySystem.addEmployee(hourlyEmp);
-        paySystem.addEmployee(contractEmp);
-        System.out.println("Before Increment:");
-        paySystem.displayAllEmployees();
-        SalariedEmployee.setIncrement(10);
-        HourlyEmployee.setIncrement(5);
-        ContractEmployee.setIncrement(7);
-        paySystem.increaseSalaries();
-        System.out.println("\nAfter Increment:");
-        paySystem.displayAllEmployees();
+        paySystem.addPayable(emp1);
+        paySystem.addPayable(emp2);
+        paySystem.addPayable(inv1);
+        paySystem.addPayable(inv2);
+        paySystem.displayPayments();
     }
 }

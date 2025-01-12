@@ -1,6 +1,6 @@
 package day2LabAssignment.employeePaySystem;
 
-public class Employee {
+public class Employee implements Payable{
 
     public int id;
     public String firstName;
@@ -44,5 +44,13 @@ public class Employee {
     @Override
     public String toString(){
         return "Employee[id="+this.id+",name="+this.firstName+this.lastName+",salary="+this.salary;
+    }
+    public void getPayment() {
+
+        System.out.println("Employee Payment Info:");
+        System.out.println("ID: " + this.id);
+        System.out.println("Name: " + this.firstName + " " + this.lastName);
+        System.out.println("Salary: " + this.salary);
+        System.out.println("Total Payment: " + this.salary);
     }
 }
