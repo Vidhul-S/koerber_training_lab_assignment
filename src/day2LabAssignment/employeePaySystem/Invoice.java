@@ -11,24 +11,13 @@ public class Invoice implements Payable {
         this.description = description;
         this.amount = amount;
     }
-    public int getInvoiceID() {
+    public String toString() {
 
-        return this.invoiceID;
-    }
-    public String getDescription() {
-
-        return this.description;
-    }
-    public double getAmount() {
-
-        return this.amount;
+        return "Invoice[ID=" + this.invoiceID + ", Description=" + this.description + ", Amount=" + this.amount + "]";
     }
     public void getPayment() {
-
         System.out.println("Invoice Payment Info:");
-        System.out.println("Invoice ID: " + this.invoiceID);
-        System.out.println("Description: " + this.description);
-        System.out.println("Amount: " + this.amount);
+        System.out.println(this.toString());
         System.out.println("Total Payment: " + this.amount);
     }
 }
