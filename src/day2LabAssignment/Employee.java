@@ -2,11 +2,11 @@ package day2LabAssignment;
 
 public class Employee {
 
-    int id;
-    String firstName;
-    String lastName;
-    int salary;
-    public void Employee(int id,String firstName,String lastName,int salary){
+    public int id;
+    public String firstName;
+    public String lastName;
+    public double salary;
+    public Employee(int id, String firstName, String lastName, double salary){
 
         this.id = id;
         this.firstName = firstName;
@@ -25,19 +25,19 @@ public class Employee {
 
         return new String(this.lastName);
     }
-    public int getSalary(){
+    public double getSalary(){
 
         return this.salary;
     }
-    public void setSalary(int salary){
+    public void setSalary(double salary){
 
         this.salary=salary;
     }
-    public int getAnnualSalary(){
+    public double getAnnualSalary(){
 
-        return (this.salary)*12;
+        return (this.salary)*365;
     }
-    public int raisSalary(int percent){
+    public double raiseSalary(int percent){
         this.salary += this.salary*percent/100;
         return this.salary;
     }
