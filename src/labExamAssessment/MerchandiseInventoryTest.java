@@ -49,8 +49,6 @@ public class MerchandiseInventoryTest {
         BufferedReader fi = new BufferedReader(new FileReader("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\labExamAssessment\\input.dat"));
         String line;
         while ((line = fi.readLine()) != null) {
-
-            line = line.trim();
             String[] parts = line.split("\\s+");
             String itemCode = parts[0];
             int quantity = Integer.parseInt(parts[1]);
