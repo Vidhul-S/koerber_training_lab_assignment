@@ -9,7 +9,7 @@ class Book {
     int noOfCopies;
     double price;
     public Book(){}
-    public Book(String bookTitle, String author, String ISBN, int noOfCopies,double price) {
+    public Book( String ISBN,String bookTitle, String author, int noOfCopies,double price) {
 
         this.bookTitle = bookTitle;
         this.author = author;
@@ -17,24 +17,34 @@ class Book {
         this.noOfCopies = noOfCopies;
         this.price = price;
     }
-    void display(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.ISBN).append(":").append(this.bookTitle).append(":").append(this.author).append(":").append(this.noOfCopies).append(":").append(this.price);
-        System.out.print(sb.toString());
+
+    public String getISBN() {
+
+        return ISBN;
     }
-    String out(){
+    public double getPrice() {
+
+        return price;
+    }
+    public String getBookTitle() {
+
+        return bookTitle;
+    }
+    public int getNoOfCopies() {
+
+        return noOfCopies;
+    }
+    public String getAuthor() {
+
+        return author;
+    }
+    void display(){
+
+        System.out.print(this.toString());
+    }
+    public String toString(){
 
         StringBuilder sb = new StringBuilder();
         return sb.append(this.ISBN).append(":").append(this.bookTitle).append(":").append(this.author).append(":").append(this.noOfCopies).append(":").append(this.price).toString();
-    }
-    void addToFile(Book book){
-        try(BufferedWriter fo = new BufferedWriter(new FileWriter("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\day3_4LabAssignment\\bookStore\\library.txt"));){
-
-
-        }
-        catch (Exception e) {
-
-            throw new RuntimeException(e);
-        }
     }
 }

@@ -23,11 +23,6 @@ class Merchandise {
         return itemCode;
     }
 
-    public int getQuantity() {
-
-        return quantity;
-    }
-
     public double getUnitPrice() {
 
         return unitPrice;
@@ -56,6 +51,9 @@ public class MerchandiseInventoryTest {
                 double price = Double.parseDouble(parts[2]);
                 merchandises.add(new Merchandise(itemCode, quantity, price));
             }
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
         }
         System.out.println("Sorted by Item Name Ascending:");
         Collections.sort(merchandises, new Comparator<Merchandise>() {
