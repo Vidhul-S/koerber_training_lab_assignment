@@ -46,16 +46,17 @@ public class MerchandiseInventoryTest {
     public static void main(String [] args) throws java.io.IOException{
 
         ArrayList<Merchandise> merchandises = new ArrayList<>();
-        BufferedReader fi = new BufferedReader(new FileReader("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\labExamAssessment\\input.dat"));
-        String line;
-        while ((line = fi.readLine()) != null) {
-            String[] parts = line.split("\\s+");
-            String itemCode = parts[0];
-            int quantity = Integer.parseInt(parts[1]);
-            double price = Double.parseDouble(parts[2]);
-            merchandises.add(new Merchandise(itemCode, quantity, price));
+        try(BufferedReader fi = new BufferedReader(new FileReader("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\labExamAssessment\\input.dat"));) {
+
+            String line;
+            while ((line = fi.readLine()) != null) {
+                String[] parts = line.split("\\s+");
+                String itemCode = parts[0];
+                int quantity = Integer.parseInt(parts[1]);
+                double price = Double.parseDouble(parts[2]);
+                merchandises.add(new Merchandise(itemCode, quantity, price));
+            }
         }
-        fi.close();
         System.out.println("Sorted by Item Name Ascending:");
         Collections.sort(merchandises, new Comparator<Merchandise>() {
 

@@ -18,12 +18,15 @@ class Book {
         this.price = price;
     }
     void display(){
-
-        System.out.print(this.bookTitle+":"+this.author+":"+this.ISBN+":"+this.noOfCopies+":"+this.price+"per piece");
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.ISBN).append(":").append(this.bookTitle).append(":").append(this.author).append(":").append(this.noOfCopies).append(":").append(this.price);
+        System.out.print(sb.toString());
     }
-//    String out(){
-//        return StringBuilder()
-//    }
+    String out(){
+
+        StringBuilder sb = new StringBuilder();
+        return sb.append(this.ISBN).append(":").append(this.bookTitle).append(":").append(this.author).append(":").append(this.noOfCopies).append(":").append(this.price).toString();
+    }
     void addToFile(Book book){
         try(BufferedWriter fo = new BufferedWriter(new FileWriter("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\day3_4LabAssignment\\bookStore\\library.txt"));){
 
