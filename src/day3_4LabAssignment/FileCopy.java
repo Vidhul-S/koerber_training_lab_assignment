@@ -13,7 +13,7 @@ public class FileCopy {
         try(FileInputStream fi = new FileInputStream("C:\\Users\\vidhul.s\\IdeaProjects\\M4X.avif");
         FileOutputStream fo = new FileOutputStream("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\day3_4LabAssignment\\M4X.avif");) {
 
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[1] ;
             int bytesRead;
             while ((bytesRead = fi.read(buffer)) != -1) {
 
