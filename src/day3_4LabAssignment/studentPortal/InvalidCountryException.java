@@ -4,7 +4,7 @@ public class InvalidCountryException extends Exception {
 
     public InvalidCountryException() {
 
-        super("Invalid country provided"); // Default error message
+        super("Invalid country provided");
     }
     public InvalidCountryException(String message) {
 
