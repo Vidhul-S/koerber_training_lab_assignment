@@ -1,11 +1,13 @@
-package day2LabAssignment;
+package day2LabAssignment.serialisation;
+
+import java.io.Serializable;
 
 public class Employee {
 
     public int id;
     public String firstName;
     public String lastName;
-    public double salary;
+    public transient double salary;
     public Employee(int id, String firstName, String lastName, double salary){
 
         this.id = id;
@@ -19,11 +21,11 @@ public class Employee {
     }
     public String getFirstName(){
 
-        return new String(this.firstName);
+        return this.firstName;
     }
     public String getLastName(){
 
-        return new String(this.lastName);
+        return this.lastName;
     }
     public double getSalary(){
 
