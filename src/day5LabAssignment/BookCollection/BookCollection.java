@@ -15,7 +15,9 @@ public class BookCollection extends Book{
     int hasBook(Book book){
 
         for(Book b:this.bookCollection){
-            if((book.getBookTitle().compareTo(b.getBookTitle())==0)||(book.getAuthor().compareTo(b.getAuthor())==0)){
+            if((book.getBookTitle()
+                    .compareTo(b.getBookTitle())==0)||(book.getAuthor()
+                    .compareTo(b.getAuthor())==0)){
 
                 return 0;
             }
