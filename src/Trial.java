@@ -6,6 +6,10 @@ public class Trial {
         Trial t = new Trial();
         t.prime(100000000);
         System.out.println(t);
+        String s = "Hello";
+        for(char c :s.toCharArray()){
+            System.out.println("It works");
+        }
     }
     static Set<Integer> primeNumber = new HashSet<>();
     public Trial(){
