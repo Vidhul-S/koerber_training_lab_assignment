@@ -2,10 +2,10 @@ package day9LabAssignment.java10_17;
 
 //DTO: lombok small framewrok to autogen getter...
 
-//class Person{
-//    private String name;
-//    private String email;
-//    private double salary;
+//public record Person{
+//    private static String name;
+//    private static String email;
+//    private static double salary;
 //
 //    public Person(String name, String email, double salary) {
 //        this.name = name;
@@ -50,22 +50,19 @@ package day9LabAssignment.java10_17;
 //        return Objects.hash(name, email, salary);
 //    }
 //}
+
+public record E_Person(String name, String email, double salary) implements Employable {
+
+    @Override
+    public double getNetSalary() {
+        return salary * 0.85;
+    }
+}
+
 //1. immutable without boilerplate code
 //2. aka final class  can not be absttract
 //3. can imp new interface
 
-interface Employable{
-    public double getNetSalary();
-}
-
-
-
-public class E_Records {
-    public static void main(String[] args) {
-
-
-    }
-}
 
 
 

@@ -2,20 +2,20 @@ package day9LabAssignment.java9;
 import java.util.*;
 public class E_FactoryMethodsInCollectionAPI {
     public static void main(String[] args) {
-        //how to create unmodificatiale collection
-//        List<String > list=new ArrayList<>();
-//        list.add("foo");
-//        list.add("bar");
-//
-//        List<String> list2=Collections.unmodifiableList(list);
+//        how to create unmodificatiale collection
+        List<String > list=new ArrayList<>();
+        list.add("foo");
+        list.add("bar");
 
-    // java 9 way of creating immutable collection
+        List<String> list2=Collections.unmodifiableList(list);
 
-//        Map<String, Integer> map=new HashMap<>();
-//        map.put("amit",90);
-//        map.put("ekta",88);
-//        map.put("raj", 77);
-//        Map<String, Integer> map2=Collections.unmodifiableMap(map);
+//     java 9 way of creating immutable collection
+
+        Map<String, Integer> map=new HashMap<>();
+        map.put("amit",90);
+        map.put("ekta",88);
+        map.put("raj", 77);
+        Map<String, Integer> map2=Collections.unmodifiableMap(map);
 
         //how to create unmodificatiale map in java 8
 
@@ -41,6 +41,6 @@ public class E_FactoryMethodsInCollectionAPI {
     }
 
     private static void myLogic( final  List<String> list) {
-        list.add(0,"raj");
+        list.addFirst("raj");
     }
 }
