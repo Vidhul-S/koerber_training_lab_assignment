@@ -10,7 +10,7 @@ public class FileCopy {
     public static void main(String[] args) throws java.io.IOException {
 
         long startTime = System.currentTimeMillis();
-        try(FileInputStream fi = new FileInputStream("C:\\Users\\vidhul.s\\IdeaProjects\\M4X.avif");
+        try(FileInputStream fi = new FileInputStream("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\M4X.avif");
         FileOutputStream fo = new FileOutputStream("C:\\Users\\vidhul.s\\IdeaProjects\\Koreber Training\\src\\day3_4LabAssignment\\M4X.avif");) {
 
             byte[] buffer = new byte[1] ;
