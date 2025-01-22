@@ -1,4 +1,4 @@
-package subClasses;
+package calculator.src.subClasses;
 
 public class Div {
     public static int div (int a, int b) {

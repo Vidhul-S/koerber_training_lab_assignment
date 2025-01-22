@@ -1,4 +1,4 @@
-package subClasses;
+package calculator.src.subClasses;
 
 public class Add {
      public static int add(int a, int b) {

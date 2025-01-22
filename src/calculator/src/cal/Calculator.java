@@ -1,9 +1,9 @@
-package cal;
+package calculator.src.cal;
 
-import subClasses.Add;
-import subClasses.Div;
-import subClasses.Mul;
-import subClasses.Sub;
+import calculator.src.subClasses.Add;
+import calculator.src.subClasses.Div;
+import calculator.src.subClasses.Mul;
+import calculator.src.subClasses.Sub;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

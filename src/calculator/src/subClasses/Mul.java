@@ -1,4 +1,4 @@
-package subClasses;
+package calculator.src.subClasses;
 
 public class Mul {
     public static int mul(int a, int b) {
