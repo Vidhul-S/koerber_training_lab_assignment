@@ -1,6 +1,5 @@
-package org.example.question1;
+package com.question1;
 
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
