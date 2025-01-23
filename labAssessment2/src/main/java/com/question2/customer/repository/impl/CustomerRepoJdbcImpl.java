@@ -17,13 +17,13 @@ public class CustomerRepoJdbcImpl implements CustomerRepo {
     }
     @Override
     public List<Customer> findAll() {
-        List<Customer> employees=new ArrayList<>();
+        List<Customer> customers=new ArrayList<>();
         try {
 
             Statement stmt=connection.createStatement();
             ResultSet rs=stmt.executeQuery("select * from cus");
             while (rs.next()){
-                employees
+                customers
                         .add(new Customer(
                                 rs.getInt("id"),
                                 rs.getString("name"),
@@ -33,7 +33,7 @@ public class CustomerRepoJdbcImpl implements CustomerRepo {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return employees;
+        return customers;
     }
 
     @Override
