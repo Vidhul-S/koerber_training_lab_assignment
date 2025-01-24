@@ -1,7 +1,5 @@
 package com.books.repository;
 
-import lombok.*;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

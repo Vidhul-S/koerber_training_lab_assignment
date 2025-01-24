@@ -1,5 +1,6 @@
 package day7LabAssignment.singleton;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class MySingleton implements Cloneable, Serializable{
@@ -33,6 +34,8 @@ public class MySingleton implements Cloneable, Serializable{
     protected Object clone() throws CloneNotSupportedException {
         throw new CloneNotSupportedException("Cloning not allowed");
     }
+
+    @Serial
     protected Object readResolve() {
         return instance;
     }

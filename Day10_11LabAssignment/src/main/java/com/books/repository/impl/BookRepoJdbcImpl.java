@@ -86,7 +86,7 @@ public class BookRepoJdbcImpl implements BookRepo {
             System.out.println(noOfRecordEffected);
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DaoException("No Book at " + id, e);
         }
     }
 
@@ -106,7 +106,7 @@ public class BookRepoJdbcImpl implements BookRepo {
                         rs.getDouble("price"));
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DaoException("No Book at " + id, e);
         }
         return book;
     }
