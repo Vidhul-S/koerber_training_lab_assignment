@@ -3,6 +3,7 @@ package com.books.test;
 import com.books.exceptions.BookNotFoundException;
 import com.books.repository.Book;
 import com.books.repository.BookRepo;
+import com.books.services.BookServicesImp;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -12,19 +13,20 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Collections;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 
 @ExtendWith(MockitoExtension.class)
-public class BookServiceTest {
+public class TestBook {
 
     @Mock
     private BookRepo bookRepo;
 
     @InjectMocks
-    private BookServiceImplementation bookServiceImplementation;
+    private BookServicesImp bookServicesImp;
 
     private Book book;
 
@@ -44,7 +46,7 @@ public class BookServiceTest {
         List<Book> books = Collections.singletonList(book);
         Mockito.when(bookRepo.getAllBooks()).thenReturn(books);
 
-        List<Book> result = bookServiceImplementation.getAllBooks();
+        List<Book> result = bookServicesImp.getAllBooks();
         assertEquals(1, result.size());
 
     }
@@ -54,17 +56,16 @@ public class BookServiceTest {
     void addBook() {
         Book book = new Book(4, "978-3-16-148410-0", "The Great Adventure", "John Doe", 119.99);
         Mockito.when(bookRepo.addBook(book)).thenReturn(book);
-        Book result = bookServiceImplementation.addBook(book);
+        Book result = bookServicesImp.addBook(book);
         assertNotNull(result);
         assertEquals(result, book);
     }
-
     @Tag("dev")
     @Test
     void deleteBookSuccess() throws BookNotFoundException {
         int bookId = 1;
-        Mockito.when(bookRepo.deleteBook(bookId)).thenReturn(true);
-        boolean result = bookServiceImplementation.deleteBook(bookId);
+        Mockito.when(bookRepo.deleteBook(1)).thenReturn(true);
+        boolean result = bookServicesImp.deleteBook(bookId);
         assertTrue(result);
     }
 
@@ -73,7 +74,7 @@ public class BookServiceTest {
     void deleteBookFailure() throws BookNotFoundException {
         int bookId = 1;
         Mockito.when(bookRepo.deleteBook(bookId)).thenThrow(new BookNotFoundException("Book Not found"));
-        assertThrows(BookNotFoundException.class, () -> bookServiceImplementation.deleteBook(bookId));
+        assertThrows(BookNotFoundException.class, () -> bookServicesImp.deleteBook(bookId));
     }
 
     @Tag("dev")
@@ -81,7 +82,7 @@ public class BookServiceTest {
     void updateBookSuccess() throws BookNotFoundException {
         int bookId = 1;
         Mockito.when(bookRepo.updateBook(bookId, book)).thenReturn(true);
-        boolean result = bookServiceImplementation.updateBook(bookId, book);
+        boolean result = bookServicesImp.updateBook(bookId, book);
         assertTrue(result);
     }
 
@@ -90,7 +91,7 @@ public class BookServiceTest {
     void updateBookFailure() throws BookNotFoundException {
         int bookId = 1;
         Mockito.when(bookRepo.updateBook(bookId, book)).thenThrow(new BookNotFoundException("Book Not found"));
-        assertThrows(BookNotFoundException.class, () -> bookServiceImplementation.updateBook(bookId, book));
+        assertThrows(BookNotFoundException.class, () -> bookServicesImp.updateBook(bookId, book));
     }
 
     @Tag("dev")
@@ -98,7 +99,7 @@ public class BookServiceTest {
     void getBookByIdSuccess() throws BookNotFoundException {
         int bookId = 1;
         Mockito.when(bookRepo.getBookById(bookId)).thenReturn(book);
-        Book result = bookServiceImplementation.getBookById(bookId);
+        Book result = bookServicesImp.getBookById(bookId);
         assertNotNull(result);
         assertEquals("The Great Adventure", result.getTitle());
     }
@@ -108,6 +109,6 @@ public class BookServiceTest {
     void getBookByIdFailure() throws BookNotFoundException {
         int bookId = 1;
         Mockito.when(bookRepo.getBookById(bookId)).thenThrow(new BookNotFoundException("Book Not found"));
-        assertThrows(BookNotFoundException.class, () -> bookServiceImplementation.getBookById(bookId));
+        assertThrows(BookNotFoundException.class, () -> bookServicesImp.getBookById(bookId));
     }
 }

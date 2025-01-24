@@ -59,20 +59,23 @@ public class BookRepoJdbcImpl implements BookRepo {
     }
 
     @Override
-    public void deleteBook(int id) throws DaoException {
+    public boolean deleteBook(int id) throws DaoException {
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("delete from books where id=?");
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
     @Override
-    public void updateBook(int id, Book book) throws DaoException {
+    public boolean updateBook(int id, Book book) throws DaoException {
+        boolean result = false;
         try {
             PreparedStatement preparedStatement = connection
                     .prepareStatement("UPDATE books SET isbn=?,title=?,author=?,price=? WHERE id=?");
@@ -84,9 +87,13 @@ public class BookRepoJdbcImpl implements BookRepo {
             int noOfRecordEffected = preparedStatement.executeUpdate();
 
             System.out.println(noOfRecordEffected);
+            result = noOfRecordEffected == 1 ? true : false;
 
         } catch (SQLException e) {
             throw new DaoException("No Book at " + id, e);
+        }
+        finally {
+            return result;
         }
     }
 

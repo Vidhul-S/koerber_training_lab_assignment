@@ -31,7 +31,7 @@ public class ConnectionFactory {
 
         try {
             Class.forName(driverName);
-            System.out.println("driver is loaded");
+            //System.out.println("driver is loaded");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

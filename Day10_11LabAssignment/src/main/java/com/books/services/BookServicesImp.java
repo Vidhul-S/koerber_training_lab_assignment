@@ -22,13 +22,13 @@ public class BookServicesImp implements BookServices {
     }
 
     @Override
-    public void deleteBook(int id) throws DaoException {
-        bookRepo.deleteBook(id);
+    public boolean deleteBook(int id) throws DaoException {
+        return bookRepo.deleteBook(id);
     }
 
     @Override
-    public void updateBook(int id, Book book) throws DaoException {
-        bookRepo.updateBook(id, book);
+    public boolean updateBook(int id, Book book) throws DaoException {
+        return bookRepo.updateBook(id, book);
     }
 
     @Override
